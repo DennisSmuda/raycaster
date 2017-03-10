@@ -16,6 +16,9 @@ class Game {
     this.mapWidth = map[0].length;
     this.mapHeight = map.length;
     this.miniMap = new Minimap(this.mapWidth, this.mapHeight);
+    this.player = new Player();
+
+    this.bindKeys();
   }
 
 
@@ -31,7 +34,44 @@ class Game {
   }
 
   bindKeys() {
+    let game = this;
+    document.onkeydown = function(e) {
+      e = e || window.event;
+      e.preventDefault(); // Prevent scroll
+      console.log("Keydown")
 
+      switch (e.keyCode) {
+        case 38: // Up
+          game.player.speed = 1;
+          break;
+
+        case 40: // Down
+          game.player.speed = -1;
+          break;
+
+        case 37: // Left
+          game.dir = -1;
+          break;
+
+        case 39: // Right
+          game.dir = 1
+      }
+    }
+
+    document.onkeyup = function(e) {
+      e = e || window.event;
+      switch (e.keyCode) { 
+        case 38: // Up
+        case 40: // Down
+          game.player.speed = 0;
+          break;
+        case 37:
+        case 39:
+          game.player.dir = 0;
+          break;
+      }
+
+    }
   }
 }
 
