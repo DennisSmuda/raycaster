@@ -1,7 +1,11 @@
 import map from './map.js'
 
 
+/**
+ * Minimap Constructor
+ */
 class Minimap {
+
   constructor(width, height) {
     this.miniMap = document.getElementById('minimap');
     this.ctx = this.miniMap.getContext('2d');
@@ -9,8 +13,11 @@ class Minimap {
     this.mapHeight = height;
     this.miniMapScale = 8;
 
+    console.log(this.mapWidth);
+
 
     this.init();
+    // this.move();
   }
 
 
@@ -26,15 +33,15 @@ class Minimap {
    *Draw Top-Down 2d View
    */
   draw() {
-    // let ctx = miniMap.getContext("2d");
+    let ctx = this.miniMap.getContext("2d");
 
     for (let y = 0; y < this.mapHeight; y++) {
       for (let x = 0; x < this.mapWidth; x++) {
         let wall = map[y][x];
 
         if (wall > 0) {
-          this.ctx.fillStyle = "rgb(124, 67, 43)";
-          this.ctx.fillRect(
+          ctx.fillStyle = "rgb(124, 67, 43)";
+          ctx.fillRect(
             x * this.miniMapScale,
             y * this.miniMapScale,
             this.miniMapScale, this.miniMapScale
@@ -46,3 +53,4 @@ class Minimap {
 }
 
 export default Minimap;
+
