@@ -8,13 +8,13 @@ class Minimap {
 
   constructor(width, height) {
     this.miniMap = document.getElementById('minimap');
+    this.miniMapObjects = document.getElementById('minimapobjects');
     this.ctx = this.miniMap.getContext('2d');
     this.mapWidth = width;
     this.mapHeight = height;
+    this.miniMapObjects.width = width;
+    this.miniMapObjects.height = height;
     this.miniMapScale = 8;
-
-    console.log(this.mapWidth);
-
 
     this.init();
     // this.move();

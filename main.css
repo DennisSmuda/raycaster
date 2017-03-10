@@ -8,6 +8,15 @@ body {
   padding: 1rem;
 }
 
-canvas  {
+div#canvas-container {
+  display: flex;
+  flex-direction: row;
 }
+
+#canvas-container {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
 
