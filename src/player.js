@@ -9,6 +9,10 @@ class Player {
     this.moveSpeed = 0.18; // how far (in map units) does the player move each step/update
     this.rotSpeed = 6; // how much does the player rotate each step/update (in degrees)
   }
+
+  update() {
+    console.log("Update Player")
+  }
 }
 
 export default Player

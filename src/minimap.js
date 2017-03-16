@@ -6,15 +6,18 @@ import map from './map.js'
  */
 class Minimap {
 
-  constructor(width, height) {
-    this.miniMap = document.getElementById('minimap');
-    this.miniMapObjects = document.getElementById('minimapobjects');
-    this.ctx = this.miniMap.getContext('2d');
-    this.mapWidth = width;
+  constructor(width, height, player) {
+    this.player    = player;
+    this.mapWidth  = width;
     this.mapHeight = height;
-    this.miniMapObjects.width = width;
+
+    this.miniMap        = document.getElementById('minimap');
+    this.miniMapObjects = document.getElementById('minimapobjects');
+    this.ctx            = this.miniMap.getContext('2d');
+
+    this.miniMapObjects.width  = width;
     this.miniMapObjects.height = height;
-    this.miniMapScale = 8;
+    this.miniMapScale          = 8;
 
     this.init();
     // this.move();
@@ -22,7 +25,6 @@ class Minimap {
 
 
   init() {
-
     this.miniMap.style.width = (this.mapWidth * this.miniMapScale) + "px";
     this.miniMap.style.height = (this.mapHeight * this.miniMapScale) + "px";
     this.miniMap.width = this.mapWidth * this.miniMapScale;
@@ -35,6 +37,7 @@ class Minimap {
   draw() {
     let ctx = this.miniMap.getContext("2d");
 
+    // Draw Tiles
     for (let y = 0; y < this.mapHeight; y++) {
       for (let x = 0; x < this.mapWidth; x++) {
         let wall = map[y][x];
@@ -49,8 +52,15 @@ class Minimap {
         }
       }
     }
+
+    // Draw Player
+    ctx.fillStyle = "rgb(255, 255, 255)"
+    ctx.fillRect(
+      this.player.x * this.miniMapScale,
+      this.player.y * this.miniMapScale,
+      this.miniMapScale, this.miniMapScale
+    );
   }
 }
 
 export default Minimap;
-

@@ -1,14 +1,10 @@
 import Game from './game'
 
-
-
+// Start Game
 let game = new Game();
-
-
 loop();
 
 
-// Update loop
 function loop() {
   game.update();
   game.draw();

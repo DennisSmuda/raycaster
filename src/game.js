@@ -15,8 +15,8 @@ class Game {
     this.canvas = document.getElementById('canvas');
     this.mapWidth = map[0].length;
     this.mapHeight = map.length;
-    this.miniMap = new Minimap(this.mapWidth, this.mapHeight);
     this.player = new Player();
+    this.miniMap = new Minimap(this.mapWidth, this.mapHeight, this.player);
 
     this.bindKeys();
   }
@@ -24,13 +24,13 @@ class Game {
 
 
   update() {
+    this.player.update();
 
   }
 
   draw() {
     
     this.miniMap.draw();
-
   }
 
   bindKeys() {
