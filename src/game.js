@@ -15,7 +15,7 @@ class Game {
     this.canvas = document.getElementById('canvas');
     this.mapWidth = map[0].length;
     this.mapHeight = map.length;
-    this.player = new Player();
+    this.player = new Player(this.mapWidth, this.mapHeight);
     this.miniMap = new Minimap(this.mapWidth, this.mapHeight, this.player);
 
     this.bindKeys();
@@ -29,7 +29,6 @@ class Game {
   }
 
   draw() {
-    
     this.miniMap.draw();
   }
 
@@ -38,7 +37,6 @@ class Game {
     document.onkeydown = function(e) {
       e = e || window.event;
       e.preventDefault(); // Prevent scroll
-      console.log("Keydown")
 
       switch (e.keyCode) {
         case 38: // Up
