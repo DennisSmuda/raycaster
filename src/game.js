@@ -13,9 +13,10 @@ const miniMapScale = 8;
 class Game {
   constructor() {
     this.canvas = document.getElementById('canvas');
+    this.screenWidth = this.canvas.width;
     this.mapWidth = map[0].length;
     this.mapHeight = map.length;
-    this.player = new Player(this.mapWidth, this.mapHeight);
+    this.player = new Player(this.mapWidth, this.mapHeight, this.screenWidth);
     this.miniMap = new Minimap(this.mapWidth, this.mapHeight, this.player);
 
     this.bindKeys();
