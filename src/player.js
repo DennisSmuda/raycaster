@@ -12,6 +12,15 @@ class Player {
 
   update() {
     console.log("Update Player")
+    console.log(this.dir * this.rotSpeed)
+    let moveStep = this.speed * this.moveSpeed;
+    this.rot += (this.dir * this.rotSpeed * Math.PI / 180);
+
+    let newX = this.x + Math.cos(this.rot) * moveStep;
+    let newY = this.y + Math.sin(this.rot) * moveStep;
+
+    this.x = newX;
+    this.y = newY;
   }
 }
 

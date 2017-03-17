@@ -50,11 +50,11 @@ class Game {
           break;
 
         case 37: // Left
-          game.dir = -1;
+          game.player.dir = -1;
           break;
 
         case 39: // Right
-          game.dir = 1
+          game.player.dir = 1
       }
     }
 

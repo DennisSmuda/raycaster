@@ -36,6 +36,8 @@ class Minimap {
    */
   draw() {
     let ctx = this.miniMap.getContext("2d");
+    ctx.clearRect(0, 0, this.miniMap.width, this.miniMap.height);
+
 
     // Draw Tiles
     for (let y = 0; y < this.mapHeight; y++) {
